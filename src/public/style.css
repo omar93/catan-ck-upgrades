@@ -46,11 +46,11 @@ html, body {
   position: absolute;
   margin-left: 18%;
   margin-top: 7%;
-  height: 75px;
+  height: 40px;
 }
 .text {
   text-align: center;
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: black;
   position: absolute;
   margin-top: 9%;
