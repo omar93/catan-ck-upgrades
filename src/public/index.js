@@ -11,9 +11,10 @@ const createTile = (i, color, css) => {
   tile.classList.add(css)
   tile.addEventListener('click', flipTile)
 
-  let resource = document.createElement('img')
-  resource.style.backgroundImage = `url('./images/${color.id}.png')`
-  resource.classList.add('img')
+  let resource = document.createElement('img');
+  resource.src = `./images/${color.id}.png`;
+  resource.classList.add('img');
+  resource.setAttribute('used', false)
 
   let textNumber = document.createElement('span')
   textNumber.classList.add('text')
@@ -34,8 +35,27 @@ const createInfoTile = (i, color, css) => {
 
   let tile = createTile(i, color, css)
 
-  let info = document.createElement('div')
+  let info = document.createElement('img')
   info.classList.add('half-tile')
+  info.src = `./images/${color.id}Info.png`;
+
+
+  wrapper.appendChild(tile)
+  wrapper.appendChild(info)
+  return wrapper
+}
+
+const createMetropolTile = (i, color, css) => {
+  let text = i-1+"x"
+
+  let wrapper = document.createElement('div')
+  wrapper.classList.add('korv')
+
+  let tile = createTile(i, color, css)
+
+  let info = document.createElement('img')
+  info.classList.add('half-tile')
+  info.src = `./images/metropolis.png`;
 
 
   wrapper.appendChild(tile)
@@ -53,6 +73,9 @@ const createTiles = (tileParentId) => {
       let info = createInfoTile(i, tileParentId, 'half-tile')
       tileParentId.appendChild(info)
 
+    } else if(i === 6 || i === 5) {
+      let tile = createMetropolTile(i, tileParentId, 'half-tile')
+      tileParentId.appendChild(tile)
     } else {
       let tile = createTile(i, tileParentId, 'tile')
       tileParentId.appendChild(tile)
@@ -61,15 +84,33 @@ const createTiles = (tileParentId) => {
   
 }
 
-const flipTile = (event) => {
-  let tile = document.querySelector(`#${event.target.id}`)
+const flipTile = (event) => {  
+  let tile = document.querySelector(`#${event.currentTarget.id}`)
   let text = tile.id.split('x')[0]
   let number = text[text.length-1]
+  let color = text.split(number)[0]
+
+  console.log(color);
   
+    
   let img = tile.children[0]
+
+  if(img.getAttribute('used') === "false") {
+    img.src = `./images/${number}.png`;
+    img.classList.remove('card');
+    img.classList.add('dice')
+    img.setAttribute('used', "true")
+  } 
+  else if(img.getAttribute('used') === "true") {
+    img.src = `./images/${color}.png`;
+    img.classList.add('img');
+    img.classList.remove('dice')
+    img.setAttribute('used', "false")
+  }
   
-  img.style.backgroundImage = `url('./images/${number}.png')`
-  img.classList.toggle('dice')
+  
+
+  // img.classList.toggle('dice')
   
   
   tile.classList.toggle('test')
