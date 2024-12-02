@@ -1,7 +1,17 @@
 <script>
+    import { onMount } from "svelte";
+
   export let num = 0
   export let color = ''
+
   let used = false
+  let w = 300
+  let h = 300
+
+  let tileHeight, tileWidth
+
+  $: h = tileHeight
+  $: w = tileWidth
 
   let bg = ''
 
@@ -28,9 +38,9 @@
   {:else}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
     <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div class="click-wrapper" on:click={handleClick}>
+    <div class="click-wrapper" on:click={handleClick} bind:clientHeight={tileHeight} bind:clientWidth={tileWidth}>
       {#if !used}
-        <img id="card" src="/images/{color}.png" alt="">
+        <img id="card" src="/images/{color}.png" alt="" style="height: {h}px; width:{w}px;" >
         <span>{num}x</span>
       {:else}
         <img id="dice" src="/images/{num}.png" alt="">
@@ -60,12 +70,15 @@
   }
 
   span {
-    margin-top: 33%;
-    margin-left: 5px;
-    font-size: 1.75rem;
+    margin-top: 10%;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: 2rem;
     position: absolute;
-    color: black;
     font-family: sans-serif;
+    -webkit-text-stroke: 3px white;
+
+    font-family: sans; color: black;
   }
   
   #card {
@@ -75,6 +88,7 @@
     margin-top: 50%;
     margin-left: 50%;
     transform: translate(-50%, -50%);
+    display: inline-block;
   }
 
   #dice {
