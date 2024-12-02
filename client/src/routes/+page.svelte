@@ -1,6 +1,20 @@
 <script>
-  export const prerender = true;
-  export const ssr = true;
+  import City from "./City.svelte"
 </script>
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+
+<div id="wrapper">
+  <City color={"yellow"}/>
+  <City color={"blue"}/>
+  <City color={"green"}/>
+</div>
+
+<style>
+  :root {
+    padding: 0px;
+    margin: 0px;
+  }
+  #wrapper {
+    display: flex;
+    height: 100vh;
+  }
+</style>

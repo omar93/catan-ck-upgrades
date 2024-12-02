@@ -2,32 +2,40 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<link rel="manifest" href="./catan.webmanifest" />
 		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="modulepreload" href="/_app/immutable/entry/start.BR6zho3e.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/entry.D7baZfr8.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/runtime.DQ605Z_k.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.CYEeQaVU.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/store.BUDXaIet.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/disclose-version.Dc5nkbUY.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/start.DNekBpJE.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/entry.FCoDk4ly.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/runtime.CqTjfmqV.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.BSiXlwBY.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/store.wd7LTB33.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/disclose-version.BV2sXPmg.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/props.BK3igM60.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_gfspdd = {
+					__sveltekit_1l9co51 = {
 						base: ""
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.BR6zho3e.js"),
-						import("/_app/immutable/entry/app.CYEeQaVU.js")
+						import("/_app/immutable/entry/start.DNekBpJE.js"),
+						import("/_app/immutable/entry/app.BSiXlwBY.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
+
+					if ('serviceWorker' in navigator) {
+						addEventListener('load', function () {
+							navigator.serviceWorker.register('/service-worker.js');
+						});
+					}
 				}
 			</script>
 		</div>
