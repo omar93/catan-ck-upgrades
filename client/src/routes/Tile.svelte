@@ -46,7 +46,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 3px solid grey;
+    border: 1px solid grey;
   }
 
   .click-wrapper {
@@ -62,9 +62,10 @@
   span {
     margin-top: 33%;
     margin-left: 5px;
-    font-size: 2rem;
+    font-size: 1.75rem;
     position: absolute;
     color: black;
+    font-family: sans-serif;
   }
   
   #card {
