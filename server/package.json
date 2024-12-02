@@ -2,8 +2,10 @@
   "type": "module",
   "name": "catan-ck-upgrades",
   "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "start": "cd client && npm run build && cd server && node app.js"
+    "dev": "node app.js --watch",
+    "start": "cd ../client && npm run build && cd ../server && node app.js"
   },
   "keywords": [],
   "author": "",
