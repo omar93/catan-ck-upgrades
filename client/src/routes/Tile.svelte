@@ -4,7 +4,7 @@
   export let num = 0
   export let color = ''
 
-  let used = false
+  let used = true
   let w = 300
   let h = 300
 
@@ -43,7 +43,17 @@
         <img id="card" src="/images/{color}.png" alt="" style="height: {h*0.85}px; width:{w*0.85}px;" >
         <span style="font-size: {h*0.2}px;">{num}x</span>
       {:else}
-        <img id="dice" src="/images/{num}.png" alt="">
+        {#if num === 1}
+        <div id="dice-wrapper">
+          <img id="dice" src="/images/{num}.png" alt="">
+          <img id="dice" src="/images/{num+1}.png" alt="">
+        </div>
+        {:else}
+          <div id="dice-wrapper">
+            <img id="dice" src="/images/{num+1}.png" alt="">
+          </div>
+        {/if}
+
       {/if}
     </div>
   {/if}
@@ -90,11 +100,19 @@
     display: inline-block;
   }
 
-  #dice {
-    height: 50px;
+  #dice-wrapper {
+    height: 60px;
     position: absolute;
     margin-top: 50%;
     margin-left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  #dice-wrapper > img {
+    border-radius: .5rem;
   }
 </style>
