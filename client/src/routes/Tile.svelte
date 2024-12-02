@@ -66,7 +66,6 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    border: 1px solid grey;
   }
 
   .click-wrapper {
@@ -75,8 +74,8 @@
   }
 
   #info {
-    margin-top: 10%;
-    padding: 1rem;
+    width: 100%;
+    height: 100%;
   }
 
   span {

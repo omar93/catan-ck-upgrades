@@ -16,5 +16,6 @@
   #wrapper {
     display: flex;
     height: 100vh;
+    background-color: white;
   }
 </style>

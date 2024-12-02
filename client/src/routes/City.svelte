@@ -1,6 +1,7 @@
 <script>
   export let color = 'yellow'
   import Tile from "./Tile.svelte";
+  let c = 'red'
   let arr = [5, 4, 3, 0, 2, 1]
 </script>
 
@@ -10,7 +11,7 @@
     <img src="/images/metropol.png" alt="">
   </div>
   {#each arr as num}
-    <div id="id{num}" class="square" style="grid-area: id{num};">
+    <div id="id{num}" class="square" style="grid-area: id{num}; ">
       <Tile num={num} {color}/>
     </div>
   {/each}
@@ -40,9 +41,11 @@
     height: 25px;
   }
   .square {
-    width: 100%;
-    height: 100%;
+    width: 99%;
+    height: 99%;
     overflow: hidden;
-    border: 1px solid rgb(43, 41, 43)
+    justify-self: center;
+    align-self: center;
+    border-radius: 1rem;
   }
 </style>
