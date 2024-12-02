@@ -4,7 +4,7 @@
   export let num = 0
   export let color = ''
 
-  let used = true
+  let used = false
   let w = 300
   let h = 300
 
@@ -82,12 +82,12 @@
   span {
     margin-top: 10%;
     margin-left: 50%;
-    transform: translate(-50%, 5%);
+    transform: translate(-50%, 10%);
     font-size: 1rem;
     position: absolute;
     font-family: sans-serif;
     background-color: white;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
   }
   
   #card {
