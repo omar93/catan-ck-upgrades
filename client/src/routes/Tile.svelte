@@ -40,8 +40,8 @@
     <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div class="click-wrapper" on:click={handleClick} bind:clientHeight={tileHeight} bind:clientWidth={tileWidth}>
       {#if !used}
-        <img id="card" src="/images/{color}.png" alt="" style="height: {h}px; width:{w}px;" >
-        <span>{num}x</span>
+        <img id="card" src="/images/{color}.png" alt="" style="height: {h*0.85}px; width:{w*0.85}px;" >
+        <span style="font-size: {h*0.2}px;">{num}x</span>
       {:else}
         <img id="dice" src="/images/{num}.png" alt="">
       {/if}
@@ -72,13 +72,12 @@
   span {
     margin-top: 10%;
     margin-left: 50%;
-    transform: translate(-50%, 0%);
-    font-size: 2rem;
+    transform: translate(-50%, 5%);
+    font-size: 1rem;
     position: absolute;
     font-family: sans-serif;
-    -webkit-text-stroke: 3px white;
-
-    font-family: sans; color: black;
+    background-color: white;
+    border-radius: 0.5rem;
   }
   
   #card {
