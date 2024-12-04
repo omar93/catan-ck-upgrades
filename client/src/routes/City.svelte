@@ -1,51 +1,64 @@
 <script>
-  export let color = 'yellow'
+  export let cityColor = 'yellow'
   import Tile from "./Tile.svelte";
-  let c = 'red'
-  let arr = [5, 4, 3, 0, 2, 1]
+  let backgroundColor = 'red'
+  let metroBackgroundColor = 'red'
+  let tiles = [5, 4, 3, 2, 1]
+  let metropolis = [1, 2, 3]
+
+  if(cityColor === 'yellow') {
+    backgroundColor = '#EECC6A'
+    metroBackgroundColor = '#D7AD47'
+  }
+
+  if(cityColor === 'blue') {
+    backgroundColor = '#BACBDB'
+    metroBackgroundColor = '#ACC7E2'
+  }
+
+  if(cityColor === 'green') {
+    backgroundColor = '#E3DC8C'
+    metroBackgroundColor = ''
+  }
 </script>
 
-<div id="wrapper">
-  <div id="metro-wrapper">
-    <img src="/images/metropol.png" alt="">
-    <img src="/images/metropol.png" alt="">
-  </div>
-  {#each arr as num}
+<div id="wrapper" style="background-image: url('/images/{cityColor}Board.png');">
+
+
+    {#each tiles as num}
     <div id="id{num}" class="square" style="grid-area: id{num}; ">
-      <Tile num={num} {color}/>
+      <Tile num={num} {cityColor}/>
     </div>
-  {/each}
+    {/each}
 </div>
 
 <style>
   #wrapper {
-    width: calc(100%/3);
     display: grid;
     grid-template-areas: 
-    "metro metro"
-    "id4 id5"
-    "id3 id0"
-    "id2 id1";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 25px 1fr 1fr 1fr;
+    ".  .    .  ."
+    ".  id4 id5 ."
+    ".  id3 .   ."
+    ".  id2 id1 ."
+    ".  .    .  .";
+    grid-template-columns: 100px 1fr 1fr 100px;
+    grid-template-rows: 80px 1fr 1fr 1fr 80px;
+    height: 100%;
+    background-size: 100%;
+    background-size: cover;
   }
 
   #metro-wrapper {
     display: flex;
     justify-content: space-around;
     grid-area: metro;
-    background-color: black;
-  }
-
-  img {
-    height: 25px;
   }
   .square {
-    width: 99%;
-    height: 99%;
+    width: 90%;
+    height: 90%;
     overflow: hidden;
     justify-self: center;
     align-self: center;
-    border-radius: 1rem;
   }
+
 </style>

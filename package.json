@@ -3,7 +3,8 @@
   "name": "catan-ck-upgrades",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd client && npm run build && cd server && node app.js"
+    "start": "cd client && npm run build && cd server && node app.js",
+    "dev": "concurrently \"cd client\" \"npm run dev\" \"cd ..\" \"cd server\" \"node app.js --watch\""
   },
   "keywords": [],
   "author": "",

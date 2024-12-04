@@ -1,11 +1,14 @@
 <script>
   import City from "./City.svelte"
+  const colors = ['yellow', 'blue', 'green']
 </script>
 
 <div id="wrapper">
-  <City color={"yellow"}/>
-  <City color={"blue"}/>
-  <City color={"green"}/>
+  {#each colors as cityColor}
+    <div id="inner-wrapper" style="background-color{cityColor}">
+      <City {cityColor}/>
+    </div>
+  {/each}
 </div>
 
 <style>
@@ -15,7 +18,10 @@
   }
   #wrapper {
     display: flex;
+  }
+  #inner-wrapper {
     height: 100vh;
+    width: 100vw;
     background-color: white;
   }
 </style>
