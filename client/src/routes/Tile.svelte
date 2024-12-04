@@ -55,10 +55,10 @@
   }
 
   .picture {
-    width: 285px;
+    width: 95px;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 5px;
+    left: 5px;
   }
 
 </style>

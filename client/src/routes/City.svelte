@@ -41,8 +41,8 @@
     ".  id3 .   ."
     ".  id2 id1 ."
     ".  .    .  .";
-    grid-template-columns: 100px 1fr 1fr 100px;
-    grid-template-rows: 80px 1fr 1fr 1fr 80px;
+    grid-template-columns: 12.5% 1fr 1fr 8%;
+    grid-template-rows: 8% 1fr 1fr 1fr 7%;
     height: 100%;
     background-size: 100%;
     background-size: cover;
