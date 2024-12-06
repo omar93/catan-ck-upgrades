@@ -1,0 +1,44 @@
+html, body {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+}
+
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+}
+
+.board {
+  flex: 1;
+  display: grid;
+  grid-template-areas:
+  ".  .  .  ."
+  ".  b4 .   b5"
+  ".  b3 .   ."
+  ".  b2 .   b1";
+  grid-template-columns: 100px 1fr 30px 1fr 100px;
+  grid-template-rows: 100px 1fr 1fr 1fr 75px;
+  gap: 10px;
+
+  position: relative;
+
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.t1{grid-area: b1;}
+.t2{grid-area: b2;}
+.t3{grid-area: b3;}
+.t4{grid-area: b4;}
+.t5{grid-area: b5;}
+.tile {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  min-width: 285px;
+  min-height: 285px;
+}
