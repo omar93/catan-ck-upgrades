@@ -1,0 +1,36 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+#wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  background-image: url("./images/board.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.board {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+  ".  .  .  ."
+  ".  b4 .   b5"
+  ".  b3 .   ."
+  ".  b2 .   b1";
+  grid-template-columns: 130px 1fr 25px 1fr 130px;
+  grid-template-rows: 120px 1fr 1fr 1fr 50px;
+  gap: 10px;
+}
+
+.t1{grid-area: b1;}
+.t2{grid-area: b2;}
+.t3{grid-area: b3;}
+.t4{grid-area: b4;}
+.t5{grid-area: b5;}
+.tile {
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
