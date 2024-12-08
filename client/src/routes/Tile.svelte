@@ -1,64 +1,26 @@
-<script>
-    import { onMount } from "svelte";
-
-  export let num = 0
-  export let cityColor = ''
+<script>  
+  export let number = 0
+  export let color = ''
 
   let used = false
-  let w = 300
-  let h = 300
-
-  let tileHeight, tileWidth
-
-  $: h = tileHeight
-  $: w = tileWidth
-
-  let bg = ''
-
 
   const handleClick = () => used = !used
   
 </script>
 
-<div id="tile-wrapper"  style="background-color:{"white"}">
-  {#if num === 0}
-    <img id="info" src="/images/{cityColor}Info.png" alt="">
-  <!-- svelte-ignore a11y_no_static_element_interactions -->
-  {:else}
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_static_element_interactions -->
-    <div class="click-wrapper" on:click={handleClick} bind:clientHeight={tileHeight} bind:clientWidth={tileWidth}>
-      {#if !used}
-        <img id="card" class="picture" src="/images/tiles/{cityColor}/{cityColor}_{num}.png" alt="">
-      {:else}
-        <div id="dice-wrapper">
-          <img id="dice" class="picture" src="/images/tiles/{cityColor}/used/{cityColor}_{num}_used.png" alt="">
-        </div>
-      {/if}
-    </div>
-  {/if}
-</div>
+
+{#if !used}
+  <button id="card" aria-label="city" on:click={handleClick} class="picture" style="background-image: url(/images/tiles/{color}/{color}_{number}.png)" alt="city-upgrade"></button>
+{:else}
+  <button id="dice" aria-label="korv" on:click={handleClick} class="picture" style="background-image: url(images/tiles/{color}/used/{color}_{number}_used.png" alt="city-upgrade"></button>
+{/if}
 
 <style>
-  #tile-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  button {
     width: 100%;
     height: 100%;
-    padding: 1rem;
+    background-position: center;
+    background-size: cover;
+    border-radius: 1rem;
   }
-
-  .click-wrapper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .picture {
-    width: 95px;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-  }
-
 </style>

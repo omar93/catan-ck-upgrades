@@ -16,20 +16,14 @@
   ],
   "screenshots": [
     {
-     "src": "images/screenshot.png",
+     "src": "images/screenshot1.png",
       "sizes": "1906x920",
-      "type": "image/png",
-      "form_factor": "wide",
-      "required": true,
-      "label": "Wonder Widgets"
+      "type": "image/png"
     },
     {
       "src": "images/screenshot2.png",
        "sizes": "608x820",
-       "type": "image/png",
-       "form_factor": "tall",
-       "required": true,
-       "label": "Wonder Widgets"
+       "type": "image/png"
      }
 ],
   "start_url": "/",
