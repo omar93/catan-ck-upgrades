@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  catan:
+    image: omaralhamad/catan:latest
+    container_name: catan-app
+    ports:
+      - "3005:80"
+    restart: always
