@@ -1,26 +1,36 @@
-<script>  
+<script>
+  import { createEventDispatcher } from 'svelte'
+
   export let number = 0
   export let color = ''
+  export let used = 'false'
 
-  let used = false
+  const dispatch = createEventDispatcher()
+  
 
-  const handleClick = () => used = !used
+  const handleClick = () => {
+    if(used === 'false') {
+      used = 'true'
+    }
+    else if(used === 'true') {
+      used = 'false'
+    }
+    dispatch('changeStatus', {color, number, used})
+  }
+
   
 </script>
 
 
-{#if !used}
-  <button id="card" aria-label="city" on:click={handleClick} class="picture" style="background-image: url(/images/tiles/{color}/{color}_{number}.png)" alt="city-upgrade"></button>
+{#if used === 'false'}
+  <img id="card" aria-label="city" on:click={handleClick} class="picture" src="/images/tiles/{color}/{color}_{number}.png" alt="city-upgrade"/>
 {:else}
-  <button id="dice" aria-label="korv" on:click={handleClick} class="picture" style="background-image: url(images/tiles/{color}/used/{color}_{number}_used.png" alt="city-upgrade"></button>
+  <img id="dice" aria-label="korv" on:click={handleClick} class="picture" src="images/tiles/{color}/used/{color}_{number}_used.png" alt="city-upgrade"/>
 {/if}
 
 <style>
-  button {
+  img {
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-size: cover;
-    border-radius: 1rem;
   }
 </style>
