@@ -28,9 +28,10 @@
   #wrapper {
     display: flex;
     background-image: url('/images/board.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 100% 100%;
   }
 
   #inner-wrapper {
