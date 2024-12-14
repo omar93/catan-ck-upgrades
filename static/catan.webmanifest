@@ -1,6 +1,7 @@
 {
-  "name": "Catan Progressive Web App",
+  "name": "Catan C&K App",
   "short_name": "C&K",
+  "orientation": "portrait-primary",
   "description": "Progressive Web App that for my catan app",
   "icons": [
     {
