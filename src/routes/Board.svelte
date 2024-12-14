@@ -42,8 +42,8 @@
     ".  .   .  .  ."
     ".  id2 . id1 ."
     ".  .   .  .  .";
-    grid-template-columns: 15% 1fr 7.5% 1fr 15%;
-    grid-template-rows: 10% 1fr 2.5% 1fr 2.5% 1fr 10%;
+    grid-template-columns: 15% 1fr 5% 1fr 15%;
+    grid-template-rows: 10% 1fr 2.5% 1fr 2.5% 1fr 8.5%;
     align-items: center;
     justify-items: center;
   }

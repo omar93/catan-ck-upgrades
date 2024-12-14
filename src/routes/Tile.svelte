@@ -1,34 +1,71 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
+  import { createEventDispatcher } from 'svelte';
+  export let number = 0;
+  export let color = '';
+  export let used = 'false';
 
-  export let number = 0
-  export let color = ''
-  export let used = 'false'
-
-  const dispatch = createEventDispatcher()
-  
+  const dispatch = createEventDispatcher();
 
   const handleClick = () => {
-    if(used === 'false') {
-      used = 'true'
-    }
-    else if(used === 'true') {
-      used = 'false'
-    }
-    dispatch('changeStatus', {color, number, used})
-  }
-
-  
+    used = used === 'false' ? 'true' : 'false';
+    dispatch('changeStatus', { color, number, used });
+  };
 </script>
 
-
-{#if used === 'false'}
-  <img id="card" aria-label="city" on:click={handleClick} class="picture" src="/images/tiles/{color}/{color}_{number}.png" alt="city-upgrade"/>
-{:else}
-  <img id="dice" aria-label="korv" on:click={handleClick} class="picture" src="images/tiles/{color}/used/{color}_{number}_used.png" alt="city-upgrade"/>
-{/if}
+<div class="card-container" on:click={handleClick}>
+  <div class="card {used === 'true' ? 'flipped' : ''}">
+    <div class="card-front">
+      <img
+        class="picture"
+        src="/images/tiles/{color}/{color}_{number}.png"
+        alt="city-upgrade"
+      />
+    </div>
+    <div class="card-back">
+      <img
+        class="picture"
+        src="/images/tiles/{color}/used/{color}_{number}_used.png"
+        alt="city-upgrade"
+      />
+    </div>
+  </div>
+</div>
 
 <style>
+  .card-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .card-front {
+    z-index: 2;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+  }
+
   img {
     width: 100%;
     height: 100%;
