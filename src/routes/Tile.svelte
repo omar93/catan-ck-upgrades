@@ -16,7 +16,7 @@
   }
 </script>
 
-<audio src="/sounds/flip2.mp3" bind:this={audio}></audio>
+<audio src="/sounds/flip.mp3" bind:this={audio}></audio>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
