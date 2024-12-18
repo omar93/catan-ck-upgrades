@@ -1,17 +1,25 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
-  export let number = 0;
-  export let color = '';
-  export let used = 'false';
+  import { createEventDispatcher } from 'svelte'
 
-  const dispatch = createEventDispatcher();
+  export let number = 0
+  export let color = ''
+  export let used = 'false'
+
+  let audio = ''
+
+  const dispatch = createEventDispatcher()
 
   const handleClick = () => {
-    used = used === 'false' ? 'true' : 'false';
-    dispatch('changeStatus', { color, number, used });
-  };
+    audio.play()
+    used = used === 'false' ? 'true' : 'false'
+    dispatch('changeStatus', { color, number, used })
+  }
 </script>
 
+<audio src="/sounds/flip2.mp3" bind:this={audio}></audio>
+
+<!-- svelte-ignore a11y_click_events_have_key_events -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="card-container" on:click={handleClick}>
   <div class="card {used === 'true' ? 'flipped' : ''}">
     <div class="card-front">
